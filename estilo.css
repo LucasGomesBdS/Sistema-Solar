@@ -1,0 +1,85 @@
+/*
+
+@Programith
+
+*/
+
+body {
+    margin: 0; /*no CSS é utilizada para controlar o espaço ao redor de um elemento. */
+    height: 100vh;/*define a altura desse elemento na página*/
+    display: flex;/* Permite criar um contêiner flexível que pode alterar o layout de seus itens */
+    align-items: center;/*Os itens são centralizados no contêiner flexível ao longo do eixo transversal.*/
+    justify-content: center;/*você está centralizando o conteúdo dentro do corpo da página horizontalmente.
+    O <body> é o elemento que contém todo o conteúdo visível de uma página HTML. */
+    background-color: black;/*vai mudar a cor do body para preto*/
+    overflow: hidden;/*ocultando qualquer conteúdo que se estenda além das bordas visíveis do corpo da página.*/
+}
+
+.container {
+    font-size: 10px;/*você está definindo o tamanho da fonte de todos os textos dentro desse elemento para 10 pixels*/
+    width: 40em;/*você está definindo a largura desse elemento para 40 vezes o tamanho da fonte do elemento pai*/
+    height: 40em;
+    position: relative;/*posicionamento desse elemento como relativo em relação à sua posição original no layout normal da página.*/
+}
+.sun {
+    position: absolute;
+    top: 15em; /*você está definindo a distância entre o topo do elemento sun e o topo do seu contêiner pai para 15 vezes o tamanho da fonte do elemento pai*/
+    left: 15em; /*você está movendo o elemento para a direita em relação à sua posição original no layout da página.*/
+    width: 10em;
+    height: 10em;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 3em white;
+}
+
+.earth,
+.moon {
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+.earth {
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em;
+    animation: orbit 36.5s linear infinite;
+}
+.moon {
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em;
+    animation: orbit 2.7s linear infinite;
+}
+
+.earth::before,
+.moon::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth::before {
+    top: 2.8em;
+    right: 2.8em;
+    width: 3em;
+    height: 3em;
+    background-color: aqua;
+}
+
+.moon::before {
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: silver;
+}
+
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
